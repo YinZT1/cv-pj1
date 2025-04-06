@@ -8,15 +8,15 @@ def find_best_hyper_params():
     '''
     测试了以下超参数，记录并输出最优的模型。
     '''
-    # lr_list = [1e-3,1e-2,0.005]
-    # lr_decay_list = [0.9,0.95,0.99]
-    # hidden_size_list = [64,100,256]
-    # reg_list = [1e-3,1e-4,1e-5]
+    lr_list = [1e-3,1e-2,0.005]
+    lr_decay_list = [0.9,0.95,0.99]
+    hidden_size_list = [64,100,256]
+    reg_list = [1e-3,1e-4,1e-5]
     record = {}
-    lr_list = [1e-3]
-    lr_decay_list = [0.9]
-    hidden_size_list = [64]
-    reg_list = [1e-3]
+    # lr_list = [1e-3]
+    # lr_decay_list = [0.9]
+    # hidden_size_list = [64]
+    # reg_list = [1e-3]
     acc = 0.0
     best_solver = None
     for lr in lr_list:
@@ -31,7 +31,7 @@ def find_best_hyper_params():
                                     lr_decay=lr_decay,
                                     num_epochs=10, batch_size=100,
                                     print_every=100,
-                                    # verbose = False
+                                    verbose = False
                                     )
                     s.train()
                     record[(lr,lr_decay,hidden_size,reg)] = s.test()
